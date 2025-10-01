@@ -1,0 +1,27 @@
+
+  <p class="filter-text">Filter the below values find out the rides</p>
+
+<div class="controls">
+  <div class="filters-data">
+  <label class="label-text">
+    Vehicle:
+  </label>
+  <br>
+   <select  [(ngModel)]="vehicleFilter">
+      <option>All</option><option>Bike</option><option>Car</option>
+    </select>
+
+  <label>
+    Time (for ±60 mins):
+    <input type="time" [(ngModel)]="timeFilter" />
+  </label>
+  </div>
+
+  <button (click)="onSeed()">Seed demo data</button>
+</div>
+
+<div *ngIf="filteredRides.length === 0" class="empty">No rides found</div>
+
+<div *ngFor="let r of filteredRides">
+  <app-ride-item [ride]="r"></app-ride-item>
+</div>

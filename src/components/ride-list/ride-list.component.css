@@ -1,0 +1,27 @@
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.filters-data {
+  min-width: 320px;
+}
+.empty {
+  color: #666;
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.label-text {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+.filter-text {
+  color: blueviolet;
+  font-size: 16px;
+  font-weight: 800;
+}

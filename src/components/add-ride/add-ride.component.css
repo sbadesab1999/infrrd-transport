@@ -1,0 +1,40 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+input,
+select {
+  display: block;
+  margin: 10px 0;
+  padding: 8px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  border: 1px solid #cdd5df;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.actions {
+  margin-top: 8px;
+}
+.error {
+  color: #b00020;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+input:focus-visible {
+  outline: none;
+}
+.mandatory {
+  color: #b00020;
+}
+h3{
+  margin-top: 0;
+}

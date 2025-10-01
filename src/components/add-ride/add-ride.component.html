@@ -1,0 +1,126 @@
+<div class="card">
+  <h3>Add a new ride (today only)</h3>
+  <form [formGroup]="Rideform" (ngSubmit)="onSubmit()">
+    <!-- Employee ID -->
+    <div>
+      <label>Employee Id <span class="mandatory">*</span></label>
+      <input formControlName="employeeId" placeholder="Enter employee ID" />
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('employeeId')?.touched &&
+          Rideform.get('employeeId')?.hasError('required')
+        "
+      >
+        Employee ID is required
+      </div>
+    </div>
+
+    <!-- Vehicle Type -->
+    <div>
+      <label>Select vehicle type <span class="mandatory">*</span></label>
+      <select formControlName="vehicleType">
+        <option value="" disabled>Select vehicle type</option>
+        <option>Bike</option>
+        <option>Car</option>
+      </select>
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('vehicleType')?.touched &&
+          Rideform.get('vehicleType')?.hasError('required')
+        "
+      >
+        Vehicle type is required
+      </div>
+    </div>
+
+    <!-- Vehicle Number -->
+    <div>
+      <label>Vehicle number <span class="mandatory">*</span></label>
+      <input formControlName="vehicleNo" placeholder="Vehicle No" />
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('vehicleNo')?.touched &&
+          Rideform.get('vehicleNo')?.hasError('required')
+        "
+      >
+        Vehicle number is required
+      </div>
+    </div>
+
+    <!-- Vacant Seats -->
+    <div>
+      <label>Vacant seats <span class="mandatory">*</span></label>
+      <input
+        type="number"
+        formControlName="vacantSeats"
+        placeholder="Enter vacant seats"
+        min="1"
+        max="5"
+      />
+      <div class="error" *ngIf="Rideform.get('vacantSeats')?.touched">
+        <span *ngIf="Rideform.get('vacantSeats')?.hasError('required')"
+          >Vacant seats are required</span
+        >
+        <span *ngIf="Rideform.get('vacantSeats')?.hasError('min')"
+          >Vacant seats must be at least 1</span
+        >
+      </div>
+    </div>
+
+    <!-- Time -->
+    <div>
+      <label>Time <span class="mandatory">*</span></label>
+      <input type="time" formControlName="time" placeholder="Enter time" />
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('time')?.touched &&
+          Rideform.get('time')?.hasError('required')
+        "
+      >
+        Time is required
+      </div>
+    </div>
+
+    <!-- Pickup Point -->
+    <div>
+      <label>Pickup-point <span class="mandatory">*</span></label>
+      <input formControlName="pickupPoint" placeholder="Enter pick-up point" />
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('pickupPoint')?.touched &&
+          Rideform.get('pickupPoint')?.hasError('required')
+        "
+      >
+        Pickup point is required
+      </div>
+    </div>
+
+    <!-- Destination -->
+    <div>
+      <label>Destination-point <span class="mandatory">*</span></label>
+      <input formControlName="destination" placeholder="Enter destination" />
+      <div
+        class="error"
+        *ngIf="
+          Rideform.get('destination')?.touched &&
+          Rideform.get('destination')?.hasError('required')
+        "
+      >
+        Destination is required
+      </div>
+    </div>
+  <!-- API Error -->
+    <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div>
+    <!-- Submit -->
+    <div class="actions">
+      <button type="submit">+ Add Ride</button>
+    </div>
+
+
+  </form>
+</div>

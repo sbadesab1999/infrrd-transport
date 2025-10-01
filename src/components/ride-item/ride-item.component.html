@@ -1,0 +1,28 @@
+
+<div class="ride-card" [class.full]="ride.vacantSeats === 0">
+  <div class="left">
+    <div class="title mb-2">
+      {{ ride.vehicleType }} — {{ ride.vehicleNo }}
+      <span class="owner">(Owner: {{ ride.employeeId }})</span>
+    </div>
+    <div class="info mb-2">
+      <span>Seats: {{ ride.vacantSeats }}</span>
+      <span>•</span>
+      <span>Time: {{ ride.timeIso | date:'shortTime' }}</span>
+    </div>
+    <div class="route mb-2">
+      From: <strong>{{ ride.pickupPoint }}</strong>
+      <span class="arrow">→</span>
+      To: <strong>{{ ride.destination }}</strong>
+    </div>
+    <div class="booked mb-2" *ngIf="ride.bookings?.length">
+      Booked: <span class="names">{{ ride.bookings.join(', ') }}</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <input placeholder="Your Employee ID" [(ngModel)]="bookingId" [disabled]="ride.vacantSeats===0" />
+    <button (click)="onBook()" [disabled]="ride.vacantSeats===0">Book</button>
+    <div class="errror-msg">{{ message }}</div>
+  </div>
+</div>
